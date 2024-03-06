@@ -1,8 +1,9 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.message === "get_tab_msg") {
-        // The content script has asked for the tab.
-        sendResponse({ tab: sender.tab });
-        console.log(sender.tab);
-        alert(sender.tab);
-    }
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.action === "getURL") {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var url = tabs[0].url;
+      sendResponse({ url: url });
+    });
+    return true; // Indicates that sendResponse will be called asynchronously
+  }
 });
