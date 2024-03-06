@@ -1,8 +1,10 @@
 {
     "manifest_version": 3,
     "name": "Hello World Extension",
+
     "version": "1.0.0",
     "description": "A simple Chrome extension that displays 'Hello, World!' in a popup.",
+
     "icons": {
         "16": "icon16.png",
         "48": "icon16.png",
@@ -16,12 +18,8 @@
             "128": "icon16.png"
         }
     },
-    "permissions": [
-        "tabs",
-        "activeTab",
-        "storage",
-        "scripting"
-    ],
+    "permissions": ["tabs", "activeTab", "storage", "scripting"],
+    "host_permissions": ["http://*/*", "https://*/*"],
     "background": {
         "service_worker": "background.js",
         "type": "module"
