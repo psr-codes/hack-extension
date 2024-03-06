@@ -23,7 +23,7 @@ async function getActiveTabUrl() {
             active: true,
         },
         async function (tabs) {
-            console.log(tabs);
+            console.log("tabs: ", tabs);
             alert(tabs[0].url);
             console.log(tabs[0].url);
 
