@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: transparent;
+}
+
+.card1 {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+    background-color: #7a94ed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    color: #333;
+    font-size: 13px;
+    margin: 0;
+}
+
+h2 {
+    color: #f2f4f7fd;
+    font-size: 32px;
+    margin: 0;
+}
