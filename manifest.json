@@ -19,7 +19,9 @@
         }
     },
     "permissions": ["tabs", "activeTab", "storage", "scripting"],
+    "host_permissions": ["http://*/*", "https://*/*"],
     "background": {
-        "scripts": ["background.js"]
+        "service_worker": "background.js",
+        "type": "module"
     }
 }
