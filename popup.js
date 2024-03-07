@@ -20,7 +20,30 @@ function startCounter() {
     if (isDoneExtracting) {
       let score = calculateScore(productInfo);
       // alert("Product Score: " + isDoneExtracting + Math.round(score));
-      document.getElementById("productScore").innerHTML = Math.round(score);
+      let productScoreElement = document.getElementById("productScore");
+      productScoreElement.innerHTML = Math.round(score);
+      productScoreElement.style.color = score > 80 ? "lightgreen" : "red";
+      
+      if (score>=80){
+        productScoreElement.style.color = "lightgreen"
+      }else if (score >=60 && score <80){
+        productScoreElement.style.color = "orange"
+
+      }else{
+        productScoreElement.style.color = "red"
+
+      }
+
+      const progressRing = document.querySelector(".progress-ring-circle");
+
+      function setProgress(percent) {
+        const offset = 314 - (percent / 100) * 314;
+        progressRing.style.strokeDashoffset = offset;
+      }
+
+        setProgress(score);
+     
+
       clearInterval(intervalId);
     }
   }, 1000); // Increment every second (1000 milliseconds)
@@ -128,7 +151,9 @@ async function getHTMLData() {
               // extractedData[key] = extractedHTML;
               console.log(key, " : ", extractedHTML);
               // Update the popup UI with the extracted HTML data
-              document.getElementById(key).innerHTML = extractedHTML;
+              if (key != "reviewArr" ){
+                document.getElementById(key).innerHTML = extractedHTML;
+              }
             } else {
               // Handle errors or no data found
               console.error(

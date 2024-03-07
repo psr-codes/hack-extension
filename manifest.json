@@ -1,9 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "Hello World Extension",
+    "name": "Shop Smart",
 
     "version": "1.0.0",
-    "description": "A simple Chrome extension that displays 'Hello, World!' in a popup.",
+    "description": "calculate the score of a product on e-commerce site and makes shopping easy.",
 
     "icons": {
         "16": "icon16.png",

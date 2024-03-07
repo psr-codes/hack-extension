@@ -10,13 +10,13 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: transparent;
-  width: 450px;
-
+  width: 300px;
+  height: 250px;
   margin: 0 auto;
   border: 8px solid #054646;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(207, 192, 192, 0.1);
-  overflow: scroll;
+  
 }
 
 .card1 {
@@ -35,8 +35,8 @@ body {
 .details {
   text-align: left;
   padding: 0 20px;
-  height: 150px;
-  overflow: auto;
+  height: 200px;
+
 }
 
 h4 {
@@ -54,9 +54,73 @@ h2 {
 .details ul {
   list-style-type: disc;
   padding-left: 20px;
-  overflow: hidden;
+  
 }
 
 .details li {
   margin-bottom: 8px;
 }
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.progress-container {
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  fill: transparent;
+  stroke: #3498db; /* Change the color as needed */
+  stroke-width: 8;
+  stroke-dasharray: 314; /* Circumference of the circle (2 * π * radius) */
+  stroke-dashoffset: 314; /* Initially, the whole circle is visible */
+  transition: stroke-dashoffset 0.3s ease-in-out; /* Adjust the animation speed */
+}
+
+
+.card1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Add other styles for your card if needed */
+}
+
+.progress-container {
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  fill: transparent;
+  stroke: lightgreen;
+  stroke-width: 8;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Adjust as needed */
+}
+
+/* Other styles for h4 and h2 if needed */
