@@ -5,22 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Simple Extension Popup</title>
         <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght@0,6..12,82.7,307;1,6..12,82.7,307&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="card1">
             <h4>Product Score</h4>
             <h2 id="productScore">0</h1>
         </div>
-
-        <p>rating: <span id="rating"></span></p>
-        <p>numberOfRatings: <span id="numberOfRatings"></span></p>
-        <p>numReviews: <span id="numReviews"></span></p>
-        <p>reviewArr: <span id="reviewArr"></span></p>
-        <p>warranty: <span id="warranty"></span></p>
-        <p>returnPolicy: <span id="returnPolicy"></span></p>
-        <p>deliveryCharge: <span id="deliveryCharge"></span></p>
+        <div class="details">
+            <ul>
+                <li>Rating: <span id="rating"></span></li>
+                <li>Number Of Ratings: <span id="numberOfRatings"></span></li>
+                <li>Number Of Reviews: <span id="numReviews"></span></li>
+                <li>Review List: <span id="reviewArr"></span></li>
+                <li>Warranty: <span id="warranty"></span></li>
+                <li>Return Policy: <span id="returnPolicy"></span></li>
+                <li>Delivery Charge: <span id="deliveryCharge"></span></li>
+            </ul>
 
         <!-- Reference the external JavaScript file -->
         <script src="./popup.js" type="module"></script>
-    </body>
+    </body>
 </html>
