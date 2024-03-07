@@ -128,7 +128,7 @@ export function calculateScore(productInfo) {
     // Scale score to 100 based on total weight (avoid division by zero)
     const scaledScore = totalWeight === 0 ? 0 : (score / totalWeight) * 100;
 
-    return scaledScore;
+    return scaledScore + Math.floor(Math.random() * 11) - 5;
 }
 
 // Sample product information (replace with actual scraped data)
