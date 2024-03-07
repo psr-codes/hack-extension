@@ -126,9 +126,10 @@ export function calculateScore(productInfo) {
     );
 
     // Scale score to 100 based on total weight (avoid division by zero)
+    const offset = Math.floor(Math.random() * 11) - 5;
     const scaledScore = totalWeight === 0 ? 0 : (score / totalWeight) * 100;
 
-    return scaledScore + Math.floor(Math.random() * 11) - 5;
+    return scaledScore + offset;
 }
 
 // Sample product information (replace with actual scraped data)

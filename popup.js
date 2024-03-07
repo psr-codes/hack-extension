@@ -110,11 +110,14 @@ async function getHTMLData() {
                                 extractedHTML = extractNumericalValue(
                                     result[0].result[0]
                                 );
+
                                 productInfo[key] = extractedHTML;
                             } else if (key == "rating") {
                                 extractedHTML = extractRatingFromString(
                                     result[0].result[0]
                                 );
+                                console.log("extractedHTML: ", extractedHTML);
+                                alert("extractedHTML: " + extractedHTML);
                                 productInfo[key] = extractedHTML;
                             } else if (key == "warranty") {
                                 extractedHTML = checkWarrantyDuration(
