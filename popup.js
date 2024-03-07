@@ -163,9 +163,8 @@ async function getHTMLData() {
 
                             // Store the extracted HTML data in the object
                             // extractedData[key] = extractedHTML;
-                            console.log(key, " : ", extractedHTML);
-                            // Update the popup UI with the extracted HTML data
-                            if (key != "reviewArr") {
+
+                            if (key != "reviewArr" && extractedHTML) {
                                 document.getElementById(key).innerHTML =
                                     extractedHTML;
                             }
