@@ -1,7 +1,36 @@
+import { calculateScore } from "./score.js";
+let isDoneExtracting = false;
+
+const productInfo = {
+    rating: "4", // Example: 3.5/5 stars
+    numberOfRatings: 1000, // Example: number of ratings for the product
+    numReviews: 500,
+    warranty: 0, // Example: 'more than 1 year', 'between 6 months and 1 year', 'no warranty'
+
+    returnPolicy: 0, // Example: 'yes', 'no'
+    deliveryTime: 2, // Example: 'same day', '1-2 days', 'more than 2 days'
+
+    // numSales: 10000,
+    reviewArr: ["very good item"],
+    deliveryCharges: 0, // Example: 'free', 'less than 200', 'more than 200'
+};
+
+function startCounter() {
+    let intervalId = setInterval(() => {
+        if (isDoneExtracting) {
+            let score = calculateScore(productInfo);
+            // alert("Product Score: " + isDoneExtracting + Math.round(score));
+            document.getElementById("productScore").innerHTML =
+                Math.round(score);
+            clearInterval(intervalId);
+        }
+    }, 1000); // Increment every second (1000 milliseconds)
+}
+
 async function getHTMLData() {
     // Define XPath expressions for each HTML element you want to extract
     let xpaths = {
-        rating: '//*[@id="productRating_LSTACCG48F2YZNGZ8D2LDR2OK_ACCG48F2YZNGZ8D2_"]/div',
+        rating: '//*[@id="productRating_LSTACCGDQMA2GDTZHWRDZ7SYX_ACCGDQMA2GDTZHWR_"]/div',
         numberOfRatings:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div[2]/div/div/span[2]/span/span[1]',
         numReviews:
@@ -12,11 +41,11 @@ async function getHTMLData() {
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[4]/div/div[2]/div',
         returnPolicy:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[8]/div[1]/div/div[2]/div[2]/ul/li[1]/div',
-        deliveryDate:
+        deliveryTime:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[5]/div/div/div[2]/div[1]/ul/div/div[1]/span[1]',
     };
 
-    let extractedData = {};
+    // let extractedData = {};
 
     // Use chrome.tabs.query to get the active tab
     chrome.tabs.query(
@@ -72,9 +101,45 @@ async function getHTMLData() {
                             //   result[0].result[0]
                             // );
                             // Process the HTML data as needed
-                            let extractedHTML = result[0].result[0];
+                            let extractedHTML;
+
+                            if (
+                                key == "numberOfRatings" ||
+                                key == "numReviews"
+                            ) {
+                                extractedHTML = extractNumericalValue(
+                                    result[0].result[0]
+                                );
+                                productInfo[key] = extractedHTML;
+                            } else if (key == "rating") {
+                                extractedHTML = extractRatingFromString(
+                                    result[0].result[0]
+                                );
+                                productInfo[key] = extractedHTML;
+                            } else if (key == "warranty") {
+                                extractedHTML = checkWarrantyDuration(
+                                    result[0].result[0]
+                                );
+                                productInfo["warranty"] = extractedHTML;
+                            } else if (key == "returnPolicy") {
+                                extractedHTML = extractReturnPolicyDays(
+                                    result[0].result[0]
+                                );
+                                productInfo["returnPolicy"] = extractedHTML;
+                            } else if (key == "deliveryTime") {
+                                extractedHTML = calculateDaysDifference(
+                                    result[0].result[0]
+                                );
+                                productInfo["deliveryTime"] = extractedHTML;
+                                isDoneExtracting = true;
+                            } else {
+                                extractedHTML = result[0].result[0];
+                                productInfo[key] = extractedHTML;
+                            }
+
                             // Store the extracted HTML data in the object
-                            extractedData[key] = extractedHTML;
+                            // extractedData[key] = extractedHTML;
+                            console.log(key, " : ", extractedHTML);
                             // Update the popup UI with the extracted HTML data
                             document.getElementById(key).innerHTML =
                                 extractedHTML;
@@ -89,13 +154,83 @@ async function getHTMLData() {
                     }
                 );
             }
-            // Print all extracted data
-            console.log("Extracted Data:", extractedData["reviewArr"]);
         }
     );
 }
 
+function extractRatingFromString(inputString) {
+    // Regular expression to match the rating number
+    const ratingRegex = /(\d\.?\d+)/;
+
+    // Extract the rating number from the input string
+    const match = inputString.match(ratingRegex);
+
+    if (match) {
+        return match[0]; // Return the extracted rating
+    } else {
+        return null; // Return null if rating is not found
+    }
+}
+
+function calculateDaysDifference(deliveryTime) {
+    // Parse the delivery date string
+    const deliveryDateParts = deliveryTime.split(", ");
+    const [day, month] = deliveryDateParts[0].split(" ");
+    const year = new Date().getFullYear(); // Get the current year
+    const deliveryDateObj = new Date(`${month} ${day}, ${year}`);
+
+    // Get today's date
+    const today = new Date();
+
+    // Calculate the difference in milliseconds
+    const differenceInMilliseconds = deliveryDateObj - today;
+
+    // Convert milliseconds to days
+    const differenceInDays = Math.ceil(
+        differenceInMilliseconds / (1000 * 60 * 60 * 24)
+    );
+
+    return differenceInDays;
+}
+
+// Example usage:
+const deliveryTime = "10 Mar, Sunday";
+const differenceInDays = calculateDaysDifference(deliveryTime);
+console.log("Difference in days:", differenceInDays);
+
+function extractNumericalValue(str) {
+    return str.match(/\d/g).join("");
+}
+
+function checkWarrantyDuration(extractedHtml) {
+    if (extractedHtml.includes("1 Year") || extractedHtml.includes("1 year")) {
+        return 12; // Return 12 for 1 year
+    }
+    if (
+        extractedHtml.includes("6 Months") ||
+        extractedHtml.includes("6 months")
+    ) {
+        return 6; // Return 6 for 6 months
+    }
+    return 0; // Return 0 if neither 1 year nor 6 months found
+}
+
+function extractReturnPolicyDays(extractedHtml) {
+    const regex = /(\d+)\s+Days?/i; // Regular expression to match the number of days
+    const match = extractedHtml.match(regex); // Search for the number of days in the string
+    if (match && match[1]) {
+        return parseInt(match[1]); // Return the extracted number of days as an integer
+    }
+    return 0; // Return 0 if no matching number of days found
+}
+
 // Wait for the DOM content to be fully loaded
 document.addEventListener("DOMContentLoaded", async function () {
-    await getHTMLData();
+    // await getHTMLData();
+    // console.log("product info before score: ", productInfo);
+    // let score = calculateScore(productInfo);
+    // alert("Product Score: " + score);
+    startCounter();
+
+    getHTMLData();
 });
