@@ -12,7 +12,7 @@ async function getHTMLData() {
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[4]/div/div[2]/div',
         returnPolicy:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[8]/div[1]/div/div[2]/div[2]/ul/li[1]/div',
-        deliveryCharge:
+        deliveryDate:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[5]/div/div/div[2]/div[1]/ul/div/div[1]/span[1]',
     };
 
@@ -90,10 +90,26 @@ async function getHTMLData() {
                 );
             }
             // Print all extracted data
-            console.log("Extracted Data:", extractedData["reviewArr"]);
+            console.log("Extracted Data keys:", Object.keys(extractedData));
+            console.log("Extracted Data:", extractedData);
+            console.log("Extracted Data:", extractedData?.deliveryDate);
         }
     );
 }
+
+function getDifferenceInDays(dateString) {
+    const givenDate = new Date(dateString);
+    const today = new Date();
+    const differenceInMs = givenDate - today;
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+
+    return differenceInDays;
+}
+
+// Example usage:
+const dateString = "10 Mar, Sunday";
+const difference = getDifferenceInDays(dateString);
+console.log("Difference in days:", difference);
 
 // Wait for the DOM content to be fully loaded
 document.addEventListener("DOMContentLoaded", async function () {
