@@ -17,7 +17,7 @@ async function getHTMLData() {
       '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[5]/div/div/div[2]/div[1]/ul/div/div[1]/span[1]',
   };
 
-  let extractedData = {};
+  // let extractedData = {};
 
   // Use chrome.tabs.query to get the active tab
   chrome.tabs.query(
@@ -75,7 +75,8 @@ async function getHTMLData() {
               // Process the HTML data as needed
               let extractedHTML = result[0].result[0];
               // Store the extracted HTML data in the object
-              extractedData[key] = extractedHTML;
+              // extractedData[key] = extractedHTML;
+              console.log(key, extractedHTML);
               // Update the popup UI with the extracted HTML data
               document.getElementById(key).innerHTML = extractedHTML;
             } else {
@@ -89,8 +90,6 @@ async function getHTMLData() {
           }
         );
       }
-      // Print all extracted data
-      console.log("Extracted Data:", extractedData["reviewArr"]);
     }
   );
 }
