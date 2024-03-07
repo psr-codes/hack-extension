@@ -90,26 +90,10 @@ async function getHTMLData() {
                 );
             }
             // Print all extracted data
-            console.log("Extracted Data keys:", Object.keys(extractedData));
-            console.log("Extracted Data:", extractedData);
-            console.log("Extracted Data:", extractedData?.deliveryDate);
+            console.log("Extracted Data:", extractedData["reviewArr"]);
         }
     );
 }
-
-function getDifferenceInDays(dateString) {
-    const givenDate = new Date(dateString);
-    const today = new Date();
-    const differenceInMs = givenDate - today;
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-
-    return differenceInDays;
-}
-
-// Example usage:
-const dateString = "10 Mar, Sunday";
-const difference = getDifferenceInDays(dateString);
-console.log("Difference in days:", difference);
 
 // Wait for the DOM content to be fully loaded
 document.addEventListener("DOMContentLoaded", async function () {
