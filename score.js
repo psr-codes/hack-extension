@@ -70,8 +70,8 @@ export function calculateScore(productInfo) {
     // Warranty (weight = 10)
     if (productInfo.warranty) {
         score += productInfo.warranty;
-        totalWeight += 10;
     }
+    totalWeight += 10;
 
     console.log(
         "score after warranty: ",
