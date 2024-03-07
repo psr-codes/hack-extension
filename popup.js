@@ -4,8 +4,17 @@ async function fetchData(url) {
         console.error("No url provided");
         return NAN;
     }
+
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json", // Adjust content type if sending different data format
+        },
+        body: JSON.stringify(url), // Convert data object to JSON string
+    };
     try {
-        const response = await fetch(url);
+        // const response = await fetch(url);
+        const response = await fetch(url, requestOptions);
         const data = await response.json(url);
         const joke = data?.attachments?.[0]?.text;
         console.log(joke); // Make sure joke is not undefined
