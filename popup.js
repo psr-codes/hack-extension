@@ -20,8 +20,29 @@ function startCounter() {
         if (isDoneExtracting) {
             let score = calculateScore(productInfo);
             // alert("Product Score: " + isDoneExtracting + Math.round(score));
-            document.getElementById("productScore").innerHTML =
-                Math.round(score);
+            let productScoreElement = document.getElementById("productScore");
+            productScoreElement.innerHTML = Math.round(score);
+            productScoreElement.style.color = score > 80 ? "lightgreen" : "red";
+
+            if (score >= 80) {
+                productScoreElement.style.color = "lightgreen";
+            } else if (score >= 60 && score < 80) {
+                productScoreElement.style.color = "orange";
+            } else {
+                productScoreElement.style.color = "red";
+            }
+
+            const progressRing = document.querySelector(
+                ".progress-ring-circle"
+            );
+
+            function setProgress(percent) {
+                const offset = 314 - (percent / 100) * 314;
+                progressRing.style.strokeDashoffset = offset;
+            }
+
+            setProgress(score);
+
             clearInterval(intervalId);
         }
     }, 1000); // Increment every second (1000 milliseconds)
@@ -30,7 +51,7 @@ function startCounter() {
 async function getHTMLData() {
     // Define XPath expressions for each HTML element you want to extract
     let xpaths = {
-        rating: '//*[@id="productRating_LSTACCGDQMA2GDTZHWRDZ7SYX_ACCGDQMA2GDTZHWR_"]/div',
+        rating: '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div[2]/div/div',
         numberOfRatings:
             '//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div[2]/div/div/span[2]/span/span[1]',
         numReviews:
@@ -117,7 +138,7 @@ async function getHTMLData() {
                                     result[0].result[0]
                                 );
                                 console.log("extractedHTML: ", extractedHTML);
-                                alert("extractedHTML: " + extractedHTML);
+                                // alert("extractedHTML: " + extractedHTML);
                                 productInfo[key] = extractedHTML;
                             } else if (key == "warranty") {
                                 extractedHTML = checkWarrantyDuration(
@@ -144,8 +165,10 @@ async function getHTMLData() {
                             // extractedData[key] = extractedHTML;
                             console.log(key, " : ", extractedHTML);
                             // Update the popup UI with the extracted HTML data
-                            document.getElementById(key).innerHTML =
-                                extractedHTML;
+                            if (key != "reviewArr") {
+                                document.getElementById(key).innerHTML =
+                                    extractedHTML;
+                            }
                         } else {
                             // Handle errors or no data found
                             console.error(
@@ -172,6 +195,21 @@ function extractRatingFromString(inputString) {
         return match[0]; // Return the extracted rating
     } else {
         return null; // Return null if rating is not found
+    }
+}
+
+function extractRatingFromHtml(htmlString) {
+    // Regular expression to match the div with class _3LWZlK and capture the rating number right after
+    const regex = /class="_3LWZlK">\s*(\d+)/;
+    const match = htmlString.match(regex);
+
+    if (match && match[1]) {
+        // console.log("Rating found:", match[1]);
+        // alert(match);
+        return match[1]; // Returns the rating
+    } else {
+        console.log("Rating not found.");
+        return null; // No rating found
     }
 }
 
