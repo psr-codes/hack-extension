@@ -171,11 +171,12 @@ async function getHTMLData() {
                             }
                         } else {
                             // Handle errors or no data found
-                            console.error(
+                            console.log(
                                 "Error extracting HTML data for XPath:",
                                 xpathExpression,
                                 chrome.runtime.lastError || "No data found"
                             );
+                            isDoneExtracting = true;
                         }
                     }
                 );
