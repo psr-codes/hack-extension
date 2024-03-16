@@ -1,7 +1,19 @@
+import { calculateSentimentScore } from "./sentimentScore";
+
 // import { calculateSentimentScore } from "./sentimentScore.js";
+function extractNumericalNumberofPrice(str) {
+  return str.replace(/\D/g, "");
+}
 
 export function calculateScore(productInfo) {
+  productInfo["price"] = parseInt(
+    extractNumericalNumberofPrice(productInfo["price"])
+  );
+  productInfo["numReviews"] = parseInt(productInfo["numReviews"]);
+  productInfo["numberOfRatings"] = parseInt(productInfo["numberOfRatings"]);
+  productInfo["rating"] = parseInt(productInfo["rating"]);
   console.log("inside calculateScore function: ", productInfo);
+  
   let totalWeight = 0; // Track total weight for scaling
   let score = 0;
 
