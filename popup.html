@@ -9,37 +9,69 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght@0,6..12,82.7,307;1,6..12,82.7,307&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="overlay" >
+      <a href="#" id="subscribeLink">Subscribe</a>
 
-        
-        
-          <!-- <script src="script.js"></script> -->
-
-
-          <div class="card1">
-            <div class="progress-container">
+      <div class="card1">
+          <div class="progress-container">
               <svg class="progress-ring" width="120" height="120">
-                <circle class="progress-ring-circle" cx="60" cy="60" r="50"></circle>
+                  <circle class="progress-ring-circle" cx="60" cy="60" r="50"></circle>
               </svg>
               <div class="text-container">
-                <h4>Product Score</h4>
-                <h2 id="productScore">0</h2>
+                  <h4>Product Score</h4>
+                  <h2 id="productScore">0</h2>
               </div>
-            </div>
           </div>
-          
-        <div class="details">
-            <ul>
-                <li>Price: <span id="price"></span></li>
-                <li>Rating: <span id="rating"></span></li>
-                <li>Number Of Ratings: <span id="numberOfRatings"></span></li>
-                <li>Number Of Reviews: <span id="numReviews"></span></li>
-                <li>Warranty: <span id="warranty"></span></li>
-                <li>Return Policy: <span id="returnPolicy"></span></li>
-                <li>Review List: <span id="reviewArr"></span></li>
-            </ul>
-
-        <!-- Reference the external JavaScript file -->
-        <script src="./popup.js" type="module"></script>
-    </body>
-</html>
+      </div>
+      
+      <div class="details">
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Price: <span id="price"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Rating: <span id="rating"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Number Of Ratings: <span id="numberOfRatings"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Number Of Reviews: <span id="numReviews"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Warranty: <span id="warranty"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Return Policy: <span id="returnPolicy"></span></span>
+        </div>
+        <div class="f1">
+          <span class="svg-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="5.25" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#01060e" d="M0 384.7V127.3c0-17.8 21.5-26.7 34.1-14.1l128.7 128.7c7.8 7.8 7.8 20.5 0 28.3L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"/></svg>
+          </span>
+          <span>Review List: <span id="reviewArr"></span></span>
+        </div>                           
+      </div>
+  
+      <!-- Reference the external JavaScript file -->
+      <script src="./popup.js" type="module"></script>
+      <script src="./utils.js" type="module"></script>
+  
+  </body>
+</html>  

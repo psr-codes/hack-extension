@@ -1,22 +1,18 @@
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans", Arial, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 307;
+  font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 82.7, "YTLC" 500;
-}
-
-body {
-  font-family: Arial, sans-serif;
   text-align: center;
   background-color: transparent;
-  width: 300px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
-  /* border: 2px solid #054646; */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(207, 192, 192, 0.1);
-  
+  padding-left: 10px;
+  padding-right:10px;
 }
 
 .card1 {
@@ -36,7 +32,6 @@ body {
   text-align: left;
   padding: 0 20px;
   height: 200px;
-
 }
 
 h4 {
@@ -51,17 +46,10 @@ h2 {
   margin: 0;
 }
 
-.details ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  
-}
-
 .details li {
   margin-bottom: 8px;
+  list-style: none;
 }
-
-
 
 
 .progress-container {
@@ -74,37 +62,23 @@ h2 {
 
 .progress-ring-circle {
   fill: transparent;
-  stroke: #3498db; /* Change the color as needed */
-  stroke-width: 8;
-  stroke-dasharray: 314; /* Circumference of the circle (2 * π * radius) */
-  stroke-dashoffset: 314; /* Initially, the whole circle is visible */
-  transition: stroke-dashoffset 0.3s ease-in-out; /* Adjust the animation speed */
-}
-
-
-.card1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* Add other styles for your card if needed */
-}
-
-.progress-container {
-  position: relative;
-}
-
-.progress-ring {
-  transform: rotate(-90deg);
-}
-
-.progress-ring-circle {
-  fill: transparent;
-  stroke: lightgreen;
   stroke-width: 8;
   stroke-dasharray: 314;
   stroke-dashoffset: 314;
   transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+.progress-ring-circle {
+  stroke: lightgreen; /* Default color */
+}
+
+/* Change the color based on score */
+.progress-ring-circle.less-than-70 {
+  stroke: orange;
+}
+
+.progress-ring-circle.less-than-50 {
+  stroke: red;
 }
 
 .text-container {
@@ -112,7 +86,56 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Adjust as needed */
 }
 
-/* Other styles for h4 and h2 if needed */
+.details .f1  {
+  font-size: 16px;
+  font-weight: 400;
+
+}
+
+.details  .f1{
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items: center;
+  margin: auto;
+  max-width: 52%;
+  height: 42px;
+  margin-bottom: 6px;
+  background-color: rgb(235, 227, 14);
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px; 
+  border-top-right-radius: 20px;
+  border-bottom-right-radius:20px ;
+}
+
+
+img{
+  position:absolute;
+  top:0;
+  left: 0;
+  width: 400px;
+  z-index: -999;
+}
+
+
+.overlay {
+  background: linear-gradient(90deg, rgb(40, 140, 180) 0%, rgb(104, 157, 244) 35%, rgba(0,212,255,1) 100%);
+  background-size: cover;
+  background-position: center;
+  height: full;
+  position: relative;
+}
+
+.random{
+  position:absolute;
+  top:0;
+  left: 0;
+  width: 400px;
+  z-index: 9;
+  width: full;
+  height: full;
+  background: red;
+}
+

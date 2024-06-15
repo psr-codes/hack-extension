@@ -46,13 +46,13 @@ function startCounter() {
 async function getHTMLData() {
   // Define XPath expressions for each HTML element you want to extract
   let classNames = {
-    rating: "_3_L3jD",
-    numberOfRatings: "_2_R_DZ",
-    numReviews: "_2_R_DZ",
-    price: "_30jeq3 _16Jk6d",
+    rating: "Y1HWO0",
+    numberOfRatings: "Wphh3N",
+    numReviews: "Wphh3N",
+    price: "Nx9bqj CxhGGd",
     reviewArr: "_1AtVbE col-12-12",
-    warranty: "_352bdz",
-    returnPolicy: "_2MJMLX",
+    warranty: "YhUgfO",
+    returnPolicy: "YhUgfO",
   };
 
   // let extractedData = {};

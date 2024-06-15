@@ -1,8 +1,9 @@
-function extractNumericalNumberofPrice(str) {
-  return str.replace(/\D/g, "");
-  
+function extractNumericalNumberOfRatings(str) {
+  const beforeRatings = str.split(" Ratings")[1];
+
+  return beforeRatings.replace(/\D/g, "");
 }
 
-val = extractNumericalNumberofPrice("₹10,099");
+val = extractNumericalNumberOfRatings("3,23,299 Ratings & 20,650 Reviews");
 
-console.log(val);
+console.log(parseInt(val, 10).toLocaleString("en-IN"));
