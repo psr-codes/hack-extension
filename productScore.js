@@ -1,5 +1,3 @@
-// const Sentiment = require("./node_modules/sentiment/lib/index.js");
-
 import Sentiment from "sentiment";
 const sentiment = new Sentiment();
 

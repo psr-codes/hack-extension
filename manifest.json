@@ -1,10 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Shop Smart",
-
     "version": "1.0.0",
-    "description": "calculate the score of a product on e-commerce site and makes shopping easy.",
-
+    "description": "Analyze products and make smart shopping decisions with AI",
     "icons": {
         "16": "icon16.png",
         "48": "icon16.png",
@@ -19,9 +17,19 @@
         }
     },
     "permissions": ["tabs", "activeTab", "storage", "scripting"],
-    "host_permissions": ["http://*/*", "https://*/*"],
+    "host_permissions": [
+        "http://*/*", 
+        "https://*/*",
+        "https://generativelanguage.googleapis.com/*"
+    ],
     "background": {
         "service_worker": "background.js",
         "type": "module"
-    }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["*.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
 }

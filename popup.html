@@ -3,14 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Simple Extension Popup</title>
+        <title>Shop Smart - AI Product Analyzer</title>
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght@0,6..12,82.7,307;1,6..12,82.7,307&display=swap" rel="stylesheet">
     </head>
-    <body class="overlay" >
-      <a href="#" id="subscribeLink">Subscribe</a>
+    <body class="overlay">
+      <div class="header">
+        <h2>🛒 Shop Smart AI</h2>
+        <button id="analyze-btn" class="analyze-button">Analyze Product</button>
+      </div>
 
       <div class="card1">
           <div class="progress-container">
@@ -68,10 +71,93 @@
           <span>Review List: <span id="reviewArr"></span></span>
         </div>                           
       </div>
+
+      <!-- AI Analysis Section -->
+      <div id="ai-analysis" class="ai-analysis-section" style="display: none;">
+        <h3>🤖 AI Analysis</h3>
+        <div class="ai-scores">
+          <div class="score-item">
+            <span>Overall Score: <span id="ai-overall-score">-</span>/100</span>
+          </div>
+          <div class="score-item">
+            <span>Value Score: <span id="ai-value-score">-</span>/100</span>
+          </div>
+          <div class="score-item">
+            <span>Trust Score: <span id="ai-trust-score">-</span>/100</span>
+          </div>
+        </div>
+        
+        <div class="ai-details">
+          <div class="ai-section">
+            <h4>Warranty Analysis</h4>
+            <p id="ai-warranty-analysis">-</p>
+          </div>
+          
+          <div class="ai-section">
+            <h4>Return Policy Analysis</h4>
+            <p id="ai-return-policy-analysis">-</p>
+          </div>
+          
+          <div class="ai-section">
+            <h4>Customer Sentiment</h4>
+            <p id="ai-sentiment-summary">-</p>
+            <div id="sentiment-details" class="sentiment-breakdown" style="display: none;">
+              <div class="sentiment-stats">
+                <div class="stat-item positive">
+                  <span class="stat-label">Positive:</span>
+                  <span id="positive-percentage">0%</span>
+                  <span class="stat-count">(<span id="positive-count">0</span> reviews)</span>
+                </div>
+                <div class="stat-item negative">
+                  <span class="stat-label">Negative:</span>
+                  <span id="negative-percentage">0%</span>
+                  <span class="stat-count">(<span id="negative-count">0</span> reviews)</span>
+                </div>
+                <div class="stat-item neutral">
+                  <span class="stat-label">Neutral:</span>
+                  <span id="neutral-percentage">0%</span>
+                  <span class="stat-count">(<span id="neutral-count">0</span> reviews)</span>
+                </div>
+              </div>
+              <button id="toggle-sentiment" class="toggle-btn">Show Details</button>
+            </div>
+          </div>
+          
+          <div class="ai-pros-cons">
+            <div class="ai-pros">
+              <h4>✅ Pros</h4>
+              <ul id="ai-pros-list"></ul>
+            </div>
+            <div class="ai-cons">
+              <h4>❌ Cons</h4>
+              <ul id="ai-cons-list"></ul>
+            </div>
+          </div>
+          
+          <div class="ai-recommendation">
+            <h4>🎯 Recommendation</h4>
+            <div class="recommendation-badge">
+              <span id="ai-recommendation">-</span>
+            </div>
+            <p id="ai-reasoning">-</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="loading" class="loading-section" style="display: none;">
+        <div class="spinner"></div>
+        <p>Analyzing product with AI...</p>
+      </div>
+
+      <div id="error" class="error-section" style="display: none;">
+        <p id="error-message">Something went wrong. Please try again.</p>
+      </div>
   
       <!-- Reference the external JavaScript file -->
-      <script src="./popup.js" type="module"></script>
-      <script src="./utils.js" type="module"></script>
+      <script src="config.js"></script>
+      <script src="sentimentAnalyzer.js"></script>
+      <script src="geminiService.js"></script>
+      <script src="popup-new.js"></script>
   
   </body>
 </html>  
