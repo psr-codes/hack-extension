@@ -6,7 +6,9 @@ body {
   text-align: center;
   background-color: transparent;
   width: 400px;
-  height: 400px;
+  min-height: 500px;
+  max-height: 600px;
+  overflow-y: auto;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,11 +34,15 @@ body {
 
 .details {
   text-align: left;
-  padding: 0 20px;
-  height: 200px;
+  padding: 20px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 15px 0;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
 h4 {
@@ -91,11 +97,14 @@ h2 {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 6px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 20px;
+  word-wrap: break-word;
 }
 
 .details .f1:hover {
@@ -115,6 +124,7 @@ h2 {
   background-position: center;
   min-height: 100%;
   position: relative;
+  overflow: visible;
 }
 
 #subscribeLink {
@@ -151,5 +161,448 @@ img{
   width: full;
   height: full;
   background: red;
+}
+
+/* Enhanced styles for AI-powered extension */
+
+/* Header section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    color: white;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.analyze-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.analyze-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* AI Analysis Section */
+.ai-analysis-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.ai-analysis-section h3 {
+    margin: 0 0 15px 0;
+    color: #495057;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ai-scores {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.ai-scores .score-item {
+    flex: 1;
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ai-details {
+    margin-top: 15px;
+}
+
+.ai-section {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    border: 1px solid #cbd5e0 !important;
+    background: #f7fafc !important;
+    margin-bottom: 12px !important;
+}
+
+.ai-section h4 {
+    margin: 0 0 8px 0;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ai-section p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.ai-pros-cons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.ai-pros, .ai-cons {
+    flex: 1;
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.ai-pros h4 {
+    margin: 0 0 8px 0;
+    color: #28a745;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ai-cons h4 {
+    margin: 0 0 8px 0;
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ai-pros ul, .ai-cons ul {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.ai-pros li {
+    color: #28a745;
+    margin-bottom: 4px;
+}
+
+.ai-cons li {
+    color: #dc3545;
+    margin-bottom: 4px;
+}
+
+.ai-recommendation {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.ai-recommendation h4 {
+    margin: 0 0 10px 0;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.recommendation-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.recommendation-badge.buy {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.recommendation-badge.consider {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.recommendation-badge.avoid {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Loading Section */
+.loading-section {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-section p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Error Section */
+.error-section {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 15px 0;
+    text-align: center;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+}
+
+.error-section p {
+    margin: 0;
+    color: #721c24;
+    font-size: 14px;
+}
+
+/* Enhanced progress ring */
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.5s ease-in-out;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: #667eea;
+    stroke-width: 4;
+    fill: transparent;
+    stroke-linecap: round;
+}
+
+/* Responsive adjustments */
+@media (max-width: 350px) {
+    .ai-pros-cons {
+        flex-direction: column;
+    }
+    
+    .ai-scores {
+        flex-direction: column;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Enhanced card styling */
+.card1 {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional visibility and layout fixes */
+
+/* Ensure all elements are visible and properly spaced */
+#ai-analysis {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#loading {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#error {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Fix for potential z-index issues */
+.ai-analysis-section, .loading-section, .error-section {
+    position: relative;
+    z-index: 10;
+}
+
+/* Ensure product details are clearly visible */
+.details .f1 span {
+    display: inline-block;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+/* Make sure all text is legible */
+.details .f1 span:last-child {
+    font-weight: 600;
+    color: #1a202c;
+}
+
+/* Improve spacing for better visibility */
+.details {
+    padding: 20px;
+    margin: 15px 0;
+}
+
+/* Ensure the container can expand */
+body {
+    max-height: none !important;
+    min-height: 500px;
+}
+
+/* Fix for any hidden overflow */
+.overlay {
+    overflow: visible;
+}
+
+/* Make sure product info fields are never hidden */
+#price, #rating, #numberOfRatings, #numReviews, #warranty, #returnPolicy, #reviewArr {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure AI analysis fields are visible */
+#ai-overall-score, #ai-value-score, #ai-trust-score, 
+#ai-warranty-analysis, #ai-return-policy-analysis, #ai-sentiment-summary,
+#ai-pros-list, #ai-cons-list, #ai-recommendation, #ai-reasoning {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sentiment Analysis Styles */
+.sentiment-breakdown {
+    margin-top: 10px;
+}
+
+.sentiment-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.stat-item.positive {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.stat-item.negative {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.stat-item.neutral {
+    background: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #d6d8db;
+}
+
+.stat-label {
+    font-weight: 600;
+}
+
+.stat-count {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.toggle-btn {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #e9ecef;
+}
+
+/* Review count display */
+.review-count-display {
+    margin-top: 10px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.review-count-display .count-highlight {
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Debug styles - remove these after testing */
+.f1 {
+    border: 1px solid #e2e8f0 !important;
+    background: white !important;
+    margin-bottom: 8px !important;
 }
 

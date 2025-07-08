@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Smart - Layout Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="overlay">
+    <div class="header">
+        <h2>🛒 Shop Smart AI</h2>
+        <button id="analyze-btn" class="analyze-button">Analyze Product</button>
+    </div>
+
+    <div class="card1">
+        <div class="progress-container">
+            <svg class="progress-ring" width="120" height="120">
+                <circle class="progress-ring-circle" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="text-container">
+                <h4>Product Score</h4>
+                <h2 id="productScore">85</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="details">
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Price: <span id="price">$29.99</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Rating: <span id="rating">4.5/5</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Number Of Ratings: <span id="numberOfRatings">1,234</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Number Of Reviews: <span id="numReviews">567</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Warranty: <span id="warranty">1 Year</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Return Policy: <span id="returnPolicy">30 Days</span></span>
+        </div>
+        <div class="f1">
+            <span class="svg-icon">▶</span>
+            <span>Review List: <span id="reviewArr">10 reviews analyzed</span></span>
+        </div>                           
+    </div>
+
+    <!-- AI Analysis Section -->
+    <div id="ai-analysis" class="ai-analysis-section" style="display: block;">
+        <h3>🤖 AI Analysis</h3>
+        <div class="ai-scores">
+            <div class="score-item">
+                <span>Overall Score: <span id="ai-overall-score">85</span>/100</span>
+            </div>
+            <div class="score-item">
+                <span>Value Score: <span id="ai-value-score">78</span>/100</span>
+            </div>
+            <div class="score-item">
+                <span>Trust Score: <span id="ai-trust-score">92</span>/100</span>
+            </div>
+        </div>
+        
+        <div class="ai-details">
+            <div class="ai-section">
+                <h4>Warranty Analysis</h4>
+                <p id="ai-warranty-analysis">Good warranty coverage with 1-year manufacturer warranty included.</p>
+            </div>
+            
+            <div class="ai-section">
+                <h4>Return Policy Analysis</h4>
+                <p id="ai-return-policy-analysis">Excellent 30-day return policy provides good buyer protection.</p>
+            </div>
+            
+            <div class="ai-section">
+                <h4>Customer Sentiment</h4>
+                <p id="ai-sentiment-summary">Overall positive sentiment with customers praising quality and value.</p>
+            </div>
+            
+            <div class="ai-pros-cons">
+                <div class="ai-pros">
+                    <h4>✅ Pros</h4>
+                    <ul id="ai-pros-list">
+                        <li>High rating (4.5/5)</li>
+                        <li>Good warranty coverage</li>
+                        <li>Positive reviews</li>
+                    </ul>
+                </div>
+                <div class="ai-cons">
+                    <h4>❌ Cons</h4>
+                    <ul id="ai-cons-list">
+                        <li>Limited color options</li>
+                        <li>Higher price point</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="ai-recommendation">
+                <h4>🎯 Recommendation</h4>
+                <div class="recommendation-badge buy">
+                    <span id="ai-recommendation">Buy</span>
+                </div>
+                <p id="ai-reasoning">Strong overall rating, good warranty, and positive customer feedback make this a recommended purchase.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test script to verify all elements are visible
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Testing element visibility:');
+            
+            const testElements = [
+                'price', 'rating', 'numberOfRatings', 'numReviews', 
+                'warranty', 'returnPolicy', 'reviewArr', 'productScore',
+                'ai-overall-score', 'ai-value-score', 'ai-trust-score',
+                'ai-warranty-analysis', 'ai-return-policy-analysis', 
+                'ai-sentiment-summary', 'ai-recommendation', 'ai-reasoning'
+            ];
+            
+            testElements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    const isVisible = rect.width > 0 && rect.height > 0;
+                    console.log(`${id}: ${isVisible ? '✅ Visible' : '❌ Hidden'} (${rect.width}x${rect.height})`);
+                } else {
+                    console.log(`${id}: ❌ Element not found`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

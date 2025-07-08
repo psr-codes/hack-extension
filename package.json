@@ -1,5 +1,23 @@
 {
+  "name": "shop-smart-extension",
+  "version": "1.0.0",
+  "description": "AI-powered e-commerce product analyzer with Gemini AI",
   "dependencies": {
     "sentiment": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.246"
+  },
+  "scripts": {
+    "build": "echo 'Extension ready to load'",
+    "setup": "echo 'Gemini API key configured in config.js'",
+    "install-deps": "npm install"
+  },
+  "keywords": ["extension", "e-commerce", "ai", "product-analysis", "gemini"],
+  "author": "Algorithm Alchemists",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/shop-smart-extension"
   }
 }
